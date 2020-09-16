@@ -3,7 +3,7 @@ from models.database import Base
 from datetime import datetime
 
 
-class AllJobs(Base):
+class Job(Base):
     __tablename__ = "alljobs"
     id = Column(Integer, primary_key=True)
     job_id = Column(Text, unique=True)
@@ -14,7 +14,7 @@ class AllJobs(Base):
     def __init__(self, job_id=None, sampler=None, state=None, date=None):
         self.job_id = job_id
         self.sampler = sampler
-        self.state = "Waiting"
+        self.state = state
         self.date = date
 
     def to_dict(self):
